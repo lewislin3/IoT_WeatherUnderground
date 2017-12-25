@@ -17,9 +17,28 @@ while(1):
     temp_TP = parsed_json1['current_observation']['temp_c']
     rain_TP = parsed_json1['current_observation']['precip_1hr_in']
     
-    print ("Current temperature in %s is: %s" % (location_TP, temp_TP))
-    print ("Current precipitation in %s is: %s" % (location_TP, rain_TP))
-    print("")
+    temp_TP=float(temp_TP)
+    rain_TP=float(rain_TP)
+    
+    if rain_TP<0:
+        rain_TP=0
+    
+    print ("Current temperature in %s is: %f" % (location_TP, temp_TP))
+    print ("Current precipitation in %s is: %f" % (location_TP, rain_TP))
+
+    if (temp_TP>30 or temp_TP<15 or rain_TP>5):
+        print ("I suggest that you should skip the class")
+        print("")
+
+    else:
+        print ("I suggest that you should attend the class")
+        print("")
+    
+
+
+
+    
+    
 
 
     f1.close()
