@@ -50,12 +50,15 @@ def hit_me():
     rain_TP=float(rain_TP)
     temp_HR = float(temp_HR)
     rain_HR = float(rain_HR)
+    ticks = time.asctime( time.localtime(time.time()) )
+    print(ticks)
     
     if rain_TP<0:
         rain_TP=0
 
     var1.set("Current temperature in %s is: %d" % (location_TP, temp_TP))
     var2.set("Current precipitation in %s is: %d" % (location_TP, rain_TP))
+    var4.set(ticks)
 
     if (temp_TP>30 or temp_TP<18 or rain_TP>5):
         var3.set("I suggest that you should skip the class")
@@ -85,6 +88,7 @@ b.grid(row=1, column=2, stick=E)
 var1 = StringVar()    # 这时文字变量储存器
 var2 = StringVar()    # 这时文字变量储存器
 var3 = StringVar()    # 这时文字变量储存器
+var4 = StringVar()
 
 l1 = Label(win,
     textvariable=var1   # 使用 textvariable 替换 text, 因为这个可以变化
@@ -108,6 +112,13 @@ l3 = Label(win,
     textvariable=var3   # 使用 textvariable 替换 text, 因为这个可以变化
     )
 l3.grid(row=6, columnspan=2)
+
+
+l4 = Label(win,
+    textvariable=var4   # 使用 textvariable 替换 text, 因为这个可以变化
+    )
+l4.grid(row=7, columnspan=2)
+
 
 
 
