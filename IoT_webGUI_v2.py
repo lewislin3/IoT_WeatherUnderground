@@ -27,15 +27,21 @@ win.pack(expand=YES)
 
 label=Label(win, height=1, text="Please enter the location name :")#建立標籤物件
 label.grid(row=1, pady=10)
-label2=Label(win, height=1, text="Yes for attend and no for skip :")#建立標籤物件
-label2.grid(row=10, pady=10)
+label2=Label(win, height=1, text="Yes for attend and no for skip :    ")#建立標籤物件
+label2.grid(row=10)
 
 e=Entry(win, justify=CENTER ,width=14)
 e.grid(row=1, column=1)
 
-e2=Entry(win, justify=CENTER ,width=14)
-e2.grid(row=10, column=1)
+#e2=Entry(win, justify=CENTER ,width=14)
+#e2.grid(row=10, column=1)
 
+var7 = StringVar()    # 这时文字变量储存器
+
+e2=Radiobutton(win, text='Yes', variable=var7, value='yes')
+e2.grid(row=10, column=1, stick=W)
+e3=Radiobutton(win, text='No', variable=var7, value='no')
+e3.grid(row=10, column=1, columnspan=2)
 
 def hit_me():
     str="http://api.wunderground.com/api/f4d4d2cde7f948ec/geolookup/conditions/q/TW/"+e.get()+".json"
@@ -136,11 +142,12 @@ def hit_ok():
     if rain_TP<0:
         rain_TP=0
 
-    if e2.get()=='yes':
+    var8 = var7.get()
+    if var8=='yes':
         f = open('data.txt','a')
         nwstring = '\n'+str(temp_TP)+' '+str(rain_TP)+' '+str(temp_HR)+' '+str(rain_HR)+' 1'
         f.write(nwstring)
-    if e2.get()=='no':
+    if var8=='no':
         f = open('data.txt','a')
         nwstring = '\n'+str(temp_TP)+' '+str(rain_TP)+' '+str(temp_HR)+' '+str(rain_HR)+' 2'
         f.write(nwstring)
@@ -156,7 +163,7 @@ b.grid(row=1, column=2, stick=E)
 b = Button(win,
            text='OK',      # 显示在按钮上的文字
            command=hit_ok, width=5)   # 点击按钮式执行的命令
-b.grid(row=10, column=2, stick=E)
+b.grid(row=10, column=2, stick=W)
 
 
 
@@ -168,6 +175,7 @@ var3 = StringVar()    # 这时文字变量储存器
 var4 = StringVar()    # 这时文字变量储存器
 var5 = StringVar()    # 这时文字变量储存器
 var6 = StringVar()    # 这时文字变量储存器
+
 l1 = Label(win,
     textvariable=var1   # 使用 textvariable 替换 text, 因为这个可以变化
     )
