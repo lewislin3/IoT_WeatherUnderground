@@ -65,15 +65,13 @@ def hit_me():
     if rain_TP.isdigit():
         rain_TP=float(rain_TP)
     else:
-        rain_TP=0
+        rain_TP=-1
     temp_HR = float(temp_HR)
     rain_HR = float(rain_HR)
     ticks = time.asctime( time.localtime(time.time()) )
 
     if rain_TP<0:
-        rain_TP=0
-    if rain_TP<0:
-        rain_TP=0
+        rain_TP=-1
 
     var1.set("Current temperature in %s is: %d celsius" % (location_TP, temp_TP))
     var2.set("Rainfall of past hour in %s is: %d" % (location_TP, rain_TP))
