@@ -98,10 +98,10 @@ def hit_me():
 
 
     if (pred==2):
-        var3.set("I suggest that you should skip the class")
+        var3.set("I suggest that you should skip the class (=^_^=) ")
 
     else:
-        var3.set("I suggest that you should attend the class")
+        var3.set("I suggest that you should attend the class ╰（‵□′╰ ")
 
 
     f1.close()
