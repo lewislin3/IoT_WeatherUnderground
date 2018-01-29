@@ -44,8 +44,8 @@ e3=Radiobutton(win, text='No', variable=var7, value='no')
 e3.grid(row=10, column=1, columnspan=2)
 
 def hit_me():
-    str="http://api.wunderground.com/api/f4d4d2cde7f948ec/geolookup/conditions/q/TW/"+e.get()+".json"
-    str2="http://api.wunderground.com/api/f4d4d2cde7f948ec/hourly/q/TW/"+e.get()+".json"
+    str="http://api.wunderground.com/api/APIKEY/geolookup/conditions/q/TW/"+e.get()+".json"
+    str2="http://api.wunderground.com/api/APIKEY/hourly/q/TW/"+e.get()+".json"
     f1 = urlopen(str)
     json_string1 = f1.read().decode('utf-8')
     parsed_json1 = json.loads(json_string1)
